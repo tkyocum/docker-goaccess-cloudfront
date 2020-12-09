@@ -24,7 +24,7 @@ The following environment variables are used in addition the the standard s6 ove
 
 | Variable | Description |
 | --- | --- |
-| BUCKET | The S3 bucket to which CloudFront writes it's logs. |
+| BUCKET | The S3 bucket to which CloudFront writes its logs. |
 | AWS_ACCESS_KEY_ID | The AWS Access Key Id with read permissions for the log bucket. Alternatively, you can use a config file based credentials in `/config/.aws/credentials`. |
 | AWS_SECRET_ACCESS_KEY | The AWS Secret Access Key paired with the id. Alternatively, you can use a config file based credentials in `/config/.aws/credentials`. |
 | CRON | (Optional) The cron schedule to sync. If missing, the container will perform a one time sync on launch. |
@@ -35,7 +35,7 @@ The following environment variables are used in addition the the standard s6 ove
 | POST_ACTION | (Optional) Specify one of the possible post execution actions to take place after the sync script completes.<br/><ul><li>**script**: A shell script to execute, placed in `/config`.</li><li>**command**: A shell command to execute.</li></ul>
 | HEALTHCHECK_ID | (Optional) The ID of a https://healthchecks.io/ check which will be pinged before and after sync and processing for monitoring duration and health of the container. |
 
-If you specify a `POST_ACTION` script, it will receive the generated analytics HMTL file as `$1`.
+If you specify a `POST_ACTION` script, it will receive the generated analytics HTML file as `$1`.
 
 ### Volumes
 
