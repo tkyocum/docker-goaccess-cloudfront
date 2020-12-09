@@ -9,6 +9,7 @@ RUN apk add --no-cache \
     gettext-static \
     git \
     libmaxminddb-dev \
+    libmaxminddb-static \
     libressl-dev \
     linux-headers \
     ncurses-dev \
@@ -17,10 +18,10 @@ RUN apk add --no-cache \
     wget
 
 WORKDIR /goaccess
-RUN wget https://tar.goaccess.io/goaccess-1.4.tar.gz \
-    && tar -xzf goaccess-1.4.tar.gz
+RUN wget https://tar.goaccess.io/goaccess-1.4.3.tar.gz \
+    && tar -xzf goaccess-1.4.3.tar.gz
 
-WORKDIR /goaccess/goaccess-1.4
+WORKDIR /goaccess/goaccess-1.4.3
 RUN autoreconf -fiv \
     && CC="clang" CFLAGS="-O3 -static" LIBS="$(pkg-config --libs openssl)" ./configure --prefix="" --enable-utf8 --with-openssl --enable-geoip=mmdb \
     && make \
